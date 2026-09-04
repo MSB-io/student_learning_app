@@ -94,34 +94,64 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Student Welcome Banner
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16.0),
-              decoration: BoxDecoration(
-                color: const Color(0xFF1E293B),
+            // Student Welcome Card (Matches Subject Card styling)
+            Card(
+              elevation: 1,
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
+                side: const BorderSide(color: Color(0xFFE2E8F0)),
               ),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Welcome, Manthan 👋',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF1E293B).withAlpha(25),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Icon(
+                            Icons.school_outlined,
+                            color: Color(0xFF1E293B),
+                            size: 20,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        const Text(
+                          'B.TECH • SEMESTER V',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF1E293B),
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    'Select a subject below to explore chapters, study notes, and quizzes.',
-                    style: TextStyle(
-                      color: Color(0xFF94A3B8),
-                      fontSize: 13,
+                    const SizedBox(height: 12),
+                    const Text(
+                      'Welcome, Manthan 👋',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF0F172A),
+                      ),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 4),
+                    const Text(
+                      'Select a subject below to explore chapters, study notes, and quizzes.',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Color(0xFF64748B),
+                        height: 1.3,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
 

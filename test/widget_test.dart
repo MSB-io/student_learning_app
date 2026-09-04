@@ -17,7 +17,10 @@ void main() {
     expect(find.text('Operating Systems'), findsOneWidget);
 
     // 2. Open Subject: Tap 'Computer Networks'
-    await tester.tap(find.text('Computer Networks'));
+    final subjectFinder = find.text('Computer Networks');
+    await tester.ensureVisible(subjectFinder);
+    await tester.pumpAndSettle();
+    await tester.tap(subjectFinder);
     await tester.pumpAndSettle();
 
     // Verify Chapter List Screen loaded
