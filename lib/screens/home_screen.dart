@@ -77,10 +77,9 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             const Divider(),
-            ListTile(
-              leading: const Icon(Icons.school_outlined),
-              title: const Text('Semester V'),
-              subtitle: const Text('B.Tech 2025-2026'),
+            const ListTile(
+              title: Text('Semester V'),
+              subtitle: Text('B.Tech 2025-2026'),
             ),
           ],
         ),
