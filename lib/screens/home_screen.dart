@@ -137,25 +137,19 @@ class HomeScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Section Header
-            const Row(
-              children: [
-                Icon(Icons.library_books_outlined, size: 20, color: Color(0xFF1E293B)),
-                SizedBox(width: 8),
-                Text(
-                  'Subjects & Syllabus',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF1E293B),
-                  ),
-                ),
-              ],
+            // Section Header (Clean text)
+            const Text(
+              'Subjects & Syllabus',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF1E293B),
+              ),
             ),
 
             const SizedBox(height: 12),
 
-            // Professor's rubric widget: GridView
+            // Professor's rubric widget: GridView (Flat cards, elevation: 0)
             Expanded(
               child: GridView.builder(
                 itemCount: sampleSubjects.length,
@@ -168,7 +162,8 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final subject = sampleSubjects[index];
                   return Card(
-                    elevation: 1,
+                    elevation: 0,
+                    color: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                       side: const BorderSide(color: Color(0xFFE2E8F0)),

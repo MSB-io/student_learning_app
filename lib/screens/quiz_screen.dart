@@ -156,7 +156,8 @@ class _QuizScreenState extends State<QuizScreen> {
 
             // Question Card
             Card(
-              elevation: 1,
+              elevation: 0,
+              color: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
                 side: const BorderSide(color: Color(0xFFE2E8F0)),

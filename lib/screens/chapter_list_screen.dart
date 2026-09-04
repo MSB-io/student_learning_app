@@ -18,7 +18,7 @@ class ChapterListScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Top Subject Header Card
+          // Top Subject Header Card (Clean, flat, no drop shadow)
           Container(
             width: double.infinity,
             margin: const EdgeInsets.all(16.0),
@@ -27,65 +27,40 @@ class ChapterListScreen extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: const Color(0xFFE2E8F0)),
-              boxShadow: const [
-                BoxShadow(
-                  color: Color(0x08000000),
-                  blurRadius: 8,
-                  offset: Offset(0, 2),
-                ),
-              ],
             ),
-            child: Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: subject.color.withAlpha(25),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Icon(
-                    subject.icon,
+                Text(
+                  subject.code,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
                     color: subject.color,
-                    size: 32,
                   ),
                 ),
-                const SizedBox(width: 14),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        subject.code,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: subject.color,
-                        ),
-                      ),
-                      Text(
-                        subject.title,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF0F172A),
-                        ),
-                      ),
-                      const SizedBox(height: 2),
-                      Text(
-                        'Total: ${subject.chapters.length} Modules & Quizzes',
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: Color(0xFF64748B),
-                        ),
-                      ),
-                    ],
+                const SizedBox(height: 4),
+                Text(
+                  subject.title,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF0F172A),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  '${subject.chapters.length} Modules & Quizzes',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Color(0xFF64748B),
                   ),
                 ),
               ],
             ),
           ),
 
-          // Section Title
+          // Section Title (Clean text)
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
             child: Align(
@@ -101,7 +76,7 @@ class ChapterListScreen extends StatelessWidget {
             ),
           ),
 
-          // Professor's rubric widget: ListView.builder
+          // Chapter List (Flat cards, no drop shadows, no icon clutter)
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.all(16.0),
@@ -110,7 +85,8 @@ class ChapterListScreen extends StatelessWidget {
                 final chapter = subject.chapters[index];
                 return Card(
                   margin: const EdgeInsets.only(bottom: 12.0),
-                  elevation: 1,
+                  elevation: 0,
+                  color: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                     side: const BorderSide(color: Color(0xFFE2E8F0)),
@@ -120,15 +96,20 @@ class ChapterListScreen extends StatelessWidget {
                       horizontal: 16.0,
                       vertical: 8.0,
                     ),
-                    leading: CircleAvatar(
-                      radius: 20,
-                      backgroundColor: const Color(0xFFF1F5F9),
+                    leading: Container(
+                      width: 32,
+                      height: 32,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF1F5F9),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                       child: Text(
                         '${chapter.chapterNumber}',
                         style: const TextStyle(
                           color: Color(0xFF1E293B),
                           fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                          fontSize: 13,
                         ),
                       ),
                     ),
@@ -142,42 +123,13 @@ class ChapterListScreen extends StatelessWidget {
                     ),
                     subtitle: Padding(
                       padding: const EdgeInsets.only(top: 4.0),
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.timer_outlined,
-                            size: 14,
-                            color: Color(0xFF64748B),
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            chapter.duration,
-                            style: const TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFF64748B),
-                            ),
-                          ),
-                          const SizedBox(width: 14),
-                          const Icon(
-                            Icons.help_outline,
-                            size: 14,
-                            color: Color(0xFF64748B),
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            '${chapter.quiz.length} MCQs',
-                            style: const TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFF64748B),
-                            ),
-                          ),
-                        ],
+                      child: Text(
+                        '${chapter.duration}  •  ${chapter.quiz.length} MCQs',
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF64748B),
+                        ),
                       ),
-                    ),
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 14,
-                      color: Color(0xFF94A3B8),
                     ),
                     onTap: () {
                       Navigator.push(

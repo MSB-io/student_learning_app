@@ -17,7 +17,6 @@ class StudyMaterialScreen extends StatefulWidget {
 }
 
 class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
-  // Simple state tracking for Checkbox from professor's rubric
   bool _isMarkedAsRead = false;
 
   @override
@@ -69,9 +68,10 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
 
             const SizedBox(height: 16),
 
-            // Summary Section Card
+            // Summary Section Card (Clean, flat, elevation: 0)
             Card(
-              elevation: 1,
+              elevation: 0,
+              color: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
                 side: const BorderSide(color: Color(0xFFE2E8F0)),
@@ -81,23 +81,13 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Row(
-                      children: [
-                        Icon(
-                          Icons.article_outlined,
-                          size: 18,
-                          color: Color(0xFF1E293B),
-                        ),
-                        SizedBox(width: 8),
-                        Text(
-                          'Chapter Overview',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF1E293B),
-                          ),
-                        ),
-                      ],
+                    const Text(
+                      'Chapter Overview',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF1E293B),
+                      ),
                     ),
                     const SizedBox(height: 10),
                     Text(
@@ -115,9 +105,10 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
 
             const SizedBox(height: 16),
 
-            // Key Study Notes Card
+            // Key Study Notes Card (Clean, flat, elevation: 0)
             Card(
-              elevation: 1,
+              elevation: 0,
+              color: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
                 side: const BorderSide(color: Color(0xFFE2E8F0)),
@@ -127,23 +118,13 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Row(
-                      children: [
-                        Icon(
-                          Icons.lightbulb_outline,
-                          size: 18,
-                          color: Color(0xFF1E293B),
-                        ),
-                        SizedBox(width: 8),
-                        Text(
-                          'Key Concepts & Definitions',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF1E293B),
-                          ),
-                        ),
-                      ],
+                    const Text(
+                      'Key Concepts & Definitions',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF1E293B),
+                      ),
                     ),
                     const SizedBox(height: 12),
                     ...widget.chapter.keyPoints.map(
@@ -181,12 +162,12 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
 
             const SizedBox(height: 16),
 
-            // Mark as completed checkbox (Rubric Widget)
+            // Mark as completed checkbox
             Card(
               elevation: 0,
-              color: const Color(0xFFF8FAFC),
+              color: Colors.white,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(12),
                 side: const BorderSide(color: Color(0xFFE2E8F0)),
               ),
               child: CheckboxListTile(
@@ -220,22 +201,18 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
 
             const SizedBox(height: 24),
 
-            // Action Button to Start Quiz (Rubric Widget: ElevatedButton)
+            // Action Button to Start Quiz
             SizedBox(
               width: double.infinity,
               height: 48,
-              child: ElevatedButton.icon(
+              child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  elevation: 0,
                   backgroundColor: const Color(0xFF1E293B),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                ),
-                icon: const Icon(Icons.quiz_outlined),
-                label: Text(
-                  'Take Chapter Quiz (${widget.chapter.quiz.length} Questions)',
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -248,6 +225,10 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
                     ),
                   );
                 },
+                child: Text(
+                  'Take Chapter Quiz (${widget.chapter.quiz.length} Questions)',
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                ),
               ),
             ),
           ],
