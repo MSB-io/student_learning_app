@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Student Welcome Banner with Avatar
+            // Student Welcome Banner
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16.0),
@@ -99,39 +99,23 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: const Color(0xFFE2E8F0)),
               ),
-              child: Row(
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(
-                      'assets/avatar.jpg',
-                      width: 48,
-                      height: 48,
-                      fit: BoxFit.cover,
+                  Text(
+                    'Welcome, Manthan',
+                    style: TextStyle(
+                      color: Color(0xFF0F172A),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(width: 14),
-                  const Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Welcome, Manthan',
-                          style: TextStyle(
-                            color: Color(0xFF0F172A),
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Select a subject below to explore chapters, study notes, and quizzes.',
-                          style: TextStyle(
-                            color: Color(0xFF64748B),
-                            fontSize: 13,
-                          ),
-                        ),
-                      ],
+                  SizedBox(height: 4),
+                  Text(
+                    'Select a subject below to explore chapters, study notes, and quizzes.',
+                    style: TextStyle(
+                      color: Color(0xFF64748B),
+                      fontSize: 13,
                     ),
                   ),
                 ],
