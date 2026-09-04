@@ -55,11 +55,7 @@ class HomeScreen extends StatelessWidget {
               accountEmail: Text('2024.manthanb@isu.ac.in'),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(
-                  Icons.person,
-                  size: 40,
-                  color: Color(0xFF1E293B),
-                ),
+                backgroundImage: AssetImage('assets/avatar.jpg'),
               ),
             ),
             ListTile(
@@ -94,7 +90,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Student Welcome Banner
+            // Student Welcome Banner with Avatar
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16.0),
@@ -103,23 +99,39 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: const Color(0xFFE2E8F0)),
               ),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
                 children: [
-                  Text(
-                    'Welcome, Manthan',
-                    style: TextStyle(
-                      color: Color(0xFF0F172A),
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      'assets/avatar.jpg',
+                      width: 48,
+                      height: 48,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(height: 4),
-                  Text(
-                    'Select a subject below to explore chapters, study notes, and quizzes.',
-                    style: TextStyle(
-                      color: Color(0xFF64748B),
-                      fontSize: 13,
+                  const SizedBox(width: 14),
+                  const Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Welcome, Manthan',
+                          style: TextStyle(
+                            color: Color(0xFF0F172A),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          'Select a subject below to explore chapters, study notes, and quizzes.',
+                          style: TextStyle(
+                            color: Color(0xFF64748B),
+                            fontSize: 13,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
