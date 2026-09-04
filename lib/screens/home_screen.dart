@@ -41,20 +41,34 @@ class HomeScreen extends StatelessWidget {
       ),
       // Professor's rubric widget: Drawer
       drawer: Drawer(
+        backgroundColor: Colors.white,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const UserAccountsDrawerHeader(
               decoration: BoxDecoration(
-                color: Color(0xFF1E293B),
+                color: Colors.white,
+                border: Border(
+                  bottom: BorderSide(color: Color(0xFFE2E8F0)),
+                ),
               ),
               accountName: Text(
                 'Manthan',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Color(0xFF0F172A),
+                ),
               ),
-              accountEmail: Text('2024.manthanb@isu.ac.in'),
+              accountEmail: Text(
+                '2024.manthanb@isu.ac.in',
+                style: TextStyle(
+                  color: Color(0xFF64748B),
+                  fontSize: 13,
+                ),
+              ),
               currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.white,
+                backgroundColor: Color(0xFFE2E8F0),
                 backgroundImage: AssetImage('assets/avatar.jpg'),
               ),
             ),
