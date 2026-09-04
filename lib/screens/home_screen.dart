@@ -21,6 +21,9 @@ class HomeScreen extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   title: const Text('About Learning App'),
                   content: const Text(
                     'Mini-Project: Student Learning App\n'
@@ -188,7 +191,7 @@ class HomeScreen extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 color: subject.color.withAlpha(25),
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(12),
                               ),
                               child: Icon(
                                 subject.icon,

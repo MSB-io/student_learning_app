@@ -51,6 +51,9 @@ class _QuizScreenState extends State<QuizScreen> {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
         title: const Row(
           children: [
             Icon(Icons.emoji_events_outlined, color: Colors.amber, size: 28),
@@ -220,7 +223,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       color: tileBgColor,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
                         side: BorderSide(color: tileBorderColor, width: 1.2),
                       ),
                       // Professor's rubric widget: Radio
@@ -246,8 +249,9 @@ class _QuizScreenState extends State<QuizScreen> {
             if (_isSubmitted) ...[
               Card(
                 color: const Color(0xFFF8FAFC),
+                elevation: 0,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(12),
                   side: const BorderSide(color: Color(0xFFCBD5E1)),
                 ),
                 child: Padding(
@@ -278,7 +282,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(12),
                         ),
                       ),
                       onPressed: () {
@@ -293,10 +297,11 @@ class _QuizScreenState extends State<QuizScreen> {
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                      elevation: 0,
                       backgroundColor: const Color(0xFF1E293B),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                     ),
                     onPressed: () {

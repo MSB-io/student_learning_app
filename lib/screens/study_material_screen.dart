@@ -211,7 +211,7 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
                   backgroundColor: const Color(0xFF1E293B),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
                 onPressed: () {
