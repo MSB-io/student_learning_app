@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
             const Divider(),
             ListTile(
               leading: const Icon(Icons.school_outlined),
-              title: const Text('Semester V - Computer Engineering'),
+              title: const Text('Semester V'),
               subtitle: const Text('B.Tech 2025-2026'),
             ),
           ],
