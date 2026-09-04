@@ -59,25 +59,6 @@ Built strictly using vanilla Flutter with local Dart dummy data — no external 
 
 ---
 
-## Viva Defense Guide (Questions & Model Answers)
-
-### Q1: Why did you use `StatelessWidget` for Home and `StatefulWidget` for Quiz?
-> **Answer**: `HomeScreen` only renders static course metadata that does not change while the screen is open, making `StatelessWidget` more performant. In contrast, `QuizScreen` must dynamically track user selections, change question indices, and calculate scores at runtime, requiring mutable state managed via `StatefulWidget`.
-
-### Q2: How does `setState()` work in your application?
-> **Answer**: When a user selects a radio option or toggles the completion checkbox, `setState()` is called. This signals the Flutter engine that the internal state has changed, prompting it to re-execute the `build()` method and repaint only the affected widgets with updated values.
-
-### Q3: How is data shared between screens?
-> **Answer**: We use constructor parameter passing. When navigating from `HomeScreen` to `ChapterListScreen`, the selected `Subject` object is passed directly into the constructor of `ChapterListScreen`. Similarly, the chosen `Chapter` is passed into `StudyMaterialScreen` and `QuizScreen`.
-
-### Q4: Why did you use `ListView.builder` instead of a plain `ListView`?
-> **Answer**: `ListView.builder` uses lazy loading. It only instantiates and renders items that are currently visible within the viewport, which conserves memory and ensures smooth scrolling even with large lists of chapters or questions.
-
-### Q5: How is navigation managed?
-> **Answer**: We utilize Flutter's built-in `Navigator` stack with `Navigator.push(context, MaterialPageRoute(...))` to push new screens onto the stack, and `Navigator.pop(context)` to pop back to previous screens.
-
----
-
 ## How to Run & Test
 
 ```bash
