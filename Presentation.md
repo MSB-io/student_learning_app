@@ -1,4 +1,4 @@
-# Student Learning App — Complete Viva Preparation Guide
+# Student Learning App
 
 This document covers **every single file** in the app, line by line, in plain simple language. Read this and you'll be able to explain any part of your app in the viva.
 
